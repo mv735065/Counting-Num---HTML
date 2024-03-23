@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Counter Page</title>
+    <style>
+        body { 
+            font-family: Arial;
+            background-color: black;
+            color: white;
+            margin: 0;
+            padding: 50px;
+        }
+        H1{
+            font-size: 40PX;
+
+        }
+
+        #clear{
+            background-color: transparent;
+            border: 2px white solid;
+            color: white;
+        
+        }
+        button{
+            padding:10px 50px;
+            border-radius: 5px;
+            /* padding-inline: ; */
+
+        }
+
+        p{
+            border-bottom:1px  solid white;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+
+        .error {
+            color: red;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1 > Counter using HTML</h1>
+
+    <p> Your Current count is:  <span id="counter">0</span></p>
+    <div id="error" class="error">Cannot decrement. Counter is already at zero.</div>
+<br>
+    <button id="increment">Increment</button>
+    <button id="decrement">Decrement</button>
+    <button id="clear" style="display: none;">Clear</button>
+    <!-- <div id="counter">0</div> -->index.htmlC:\Users\welcome\OneDrive\Desktop\vs-code front-1 projecst\Practice 1\index.html
+
+    <script>
+        var counter = document.getElementById('counter');
+        var incrementButton = document.getElementById('increment');
+        var decrementButton = document.getElementById('decrement');
+        var clearButton = document.getElementById('clear');
+        var errorDiv = document.getElementById('error');
+
+        incrementButton.addEventListener('click', function() {
+            counter.innerText = parseInt(counter.innerText) + 1;
+            if (parseInt(counter.innerText) > 0) {
+                clearButton.style.display = 'inline';
+                errorDiv.style.display = 'none';
+            }
+        });
+
+        decrementButton.addEventListener('click', function() {
+            if (parseInt(counter.innerText) > 0) {
+                counter.innerText = parseInt(counter.innerText) - 1;
+                if (parseInt(counter.innerText) == 0) {
+                    clearButton.style.display = 'none';
+                }
+            } else {
+                errorDiv.style.display = 'block';
+            }
+        });
+
+        clearButton.addEventListener('click', function() {
+            counter.innerText = 0;
+            clearButton.style.display = 'none';
+        });
+    </script>
+</body>
+</html>
